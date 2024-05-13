@@ -17,17 +17,18 @@ const PublicationSchema =Schema({
         type:String,
         required:[true, "The category is required in the post"]
     },
-    // idUser:{
-    //     type:Schema.Types.ObjectId,
-    //     default:""
-    // }
-    user:{
-        type:String,
-        default:"Kenneth Velásquez"
+    idUser:{
+        type:Schema.Types.ObjectId,
+        default:""
+    },
+    date:{
+        type:Date,
+        default:Date.now,
     }
 });
 PublicationSchema.methods.toJSON = function(){
     const {__v,_id,...post} = this.toObject();
+    post.date = post.date.toISOString().substring(0,10);
     post.id = _id;
     return post;
 }

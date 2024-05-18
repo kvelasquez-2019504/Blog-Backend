@@ -11,7 +11,7 @@ export const commentPost = async (req=request, res=response)=>{
     await User.findByIdAndUpdate(uid,{comments:userLog.comments});
     newComment.save();
     res.status(200).json({
-        newComment,
+        newComment
     });
 }
 

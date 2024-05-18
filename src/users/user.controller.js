@@ -28,8 +28,8 @@ export const verifyPassword = async (req, res, next) => {
 }
 
 export const userPost = async (req, res) => {
-    const { username, userEmail, password } = req.body;
-    const user = new User({ username, userEmail, password });
+    const { name, username, userEmail, password } = req.body;
+    const user = new User({ name, username, userEmail, password });
     const salt = bcryptjs.genSaltSync();
     user.password = bcryptjs.hashSync(password, salt);
     await user.save();

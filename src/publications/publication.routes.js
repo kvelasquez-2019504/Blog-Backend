@@ -13,7 +13,7 @@ router.post('/',[validateJWT,
 
 router.get('/',[validateJWT],publicationGet);
 
-router.get('/byId',[validateJWT],publicationGetById);
+router.get('/:idPublication',[validateJWT],publicationGetById);
 
 router.delete('/',[validateJWT],publicationDelete);
 export default router;

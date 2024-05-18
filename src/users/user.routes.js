@@ -18,8 +18,8 @@ router.put('/',[validateJWT,
     verifyPassword
 ],userPut);
 
-router.post('/',[
-    check("username","Name is required to register").not().isEmpty(),
+router.post('/',[check("name","Name is required to register").not().isEmpty(),
+    check("username","Username is required to register").not().isEmpty(),
     check("username").custom(existsUsername),
     check("userEmail","A valid email is required").isEmail(),
     check('userEmail').custom(existsUserEmail),
